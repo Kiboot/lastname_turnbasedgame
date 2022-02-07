@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(buttoncounter>0){
             skill1.setEnabled(false);
-            buttoncounter--;
+            // buttoncounter--;
         }
         else if(buttoncounter==0){
             skill1.setEnabled(true);
@@ -141,22 +141,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     txtMonsHP.setText(String.valueOf(monsterHP));
                     btnNextTurn.setText("Next Turn ("+ String.valueOf(turnNumber)+")");
 
-                    txtLog.setText("Our Hero "+String.valueOf(heroName) +" dealt "+String.valueOf(herodps) + " damage to the enemy.");
+                    txtLog.setText("Our Hero "+String.valueOf(heroName) +" dealt "+String.valueOf(herodps) + " damage to the enemy."+String.valueOf(buttoncounter));
 
                     if(monsterHP < 0){ //even
                         txtLog.setText("Our Hero "+String.valueOf(heroName) +" dealt "+String.valueOf(herodps) + " damage to the enemy. The player is victorious!");
                         heroHP = 1500;
                         monsterHP = 3000;
                         turnNumber= 1;
+                        buttoncounter=0;
                         btnNextTurn.setText("Reset Game");
                     }
 
-                    if(statuscounter>0){ //if the enemy is still stunned, reduce the stun for 1 turn
-                        statuscounter--;
-                        if(statuscounter==0){
-                            disabledstatus=false;
-                        }
-                    }
+                    // if(statuscounter>0){ //if the enemy is still stunned, reduce the stun for 1 turn
+                    // statuscounter--;
+                    // if(statuscounter==0){
+                    //   disabledstatus=false;
+                    // }
+                    //  }
                     buttoncounter--;
                 }
                 else if(turnNumber%2 != 1){ //even
@@ -164,6 +165,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if(disabledstatus==true){
                         txtLog.setText("The enemy is still stunned for "+String.valueOf(statuscounter)+ "turns");
                         statuscounter--;
+                        turnNumber++;
+                        btnNextTurn.setText("Next Turn ("+ String.valueOf(turnNumber)+")");
                         if(statuscounter==0){
                             disabledstatus=false;
                         }
@@ -181,10 +184,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             heroHP = 1500;
                             monsterHP = 3000;
                             turnNumber= 1;
+                            buttoncounter=0;
                             btnNextTurn.setText("Reset Game");
                         }
                     }
-                    buttoncounter--;
+                    // buttoncounter--;
                 }
                 break;
         }
