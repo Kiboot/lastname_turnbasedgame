@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     txtMonsHP.setText(String.valueOf(monsterHP));
                     btnNextTurn.setText("Next Turn ("+ String.valueOf(turnNumber)+")");
 
-                    txtLog.setText("Our Hero "+String.valueOf(heroName) +" dealt "+String.valueOf(herodps) + " damage to the enemy."+String.valueOf(buttoncounter));
+                    txtLog.setText("Our Hero "+String.valueOf(heroName) +" dealt "+String.valueOf(herodps) + " damage to the enemy.");
 
                     if(monsterHP < 0){ //even
                         txtLog.setText("Our Hero "+String.valueOf(heroName) +" dealt "+String.valueOf(herodps) + " damage to the enemy. The player is victorious!");
